@@ -1,0 +1,155 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LocalSite2.master.cs" Inherits="ArtisanXChange.LocalSite2" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>ArtisanXChange Website</title>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            scroll-padding-top: 2rem;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%; /* Ensure full height */
+            margin: 0; /* Remove default margin */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-container {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 1.5%;
+        }
+
+        .logo-container .logo {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+
+        .welcome-message {
+            color: white;
+            font-size: 18px;
+            position: absolute;
+            right: 30px; /* Move the message to the right side */
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 230px; /* Adjusted width */
+            height: 200vh; /* Ensure full viewport height */
+            background-color: #122620;
+            position: fixed;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            align-items: center; /* Center align all items horizontally */
+            overflow-y: auto; /* Allow vertical scrolling */
+        }
+
+        .sidebar-logo {
+            width: 70px; /* Adjust the size of the logo */
+            height: 70px;
+            margin-bottom: 20px; /* Add some space below the logo */
+        }
+
+        .sidebar .nav-link-container {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            width: 100%; /* Full width to ensure alignment */
+        }
+
+        .sidebar .nav-link-container img {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            margin-left: 5px;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border-radius: 4px;
+            font-size: 20px; /* Adjust the text size here */
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        /* Main content */
+        .main-content {
+            margin-left: 100px; /* Adjust for sidebar width */
+            padding: 20px;
+            width: calc(100% - 83px); /* Adjust for sidebar width */
+        }
+
+    </style>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <!-- Sidebar navigation -->
+            <div class="sidebar">
+                <!-- Logo at the top of the sidebar, centered -->
+                <asp:ImageButton runat="server" ImageUrl="~/Image/logo.jpg" PostBackUrl="~/Dashboard.aspx" CssClass="sidebar-logo" />
+
+                <!-- Image and text side by side for each link -->
+                <div class="nav-link-container">
+                    <asp:Image runat="server" ImageUrl="~/Image/dashicon.png" />
+                    <asp:HyperLink ID="DashLink" runat="server" NavigateUrl="~/LocalArtisanDashboard.aspx" CssClass="nav-link">Dashboard</asp:HyperLink>
+                </div>
+
+                <div class="nav-link-container">
+                    <asp:Image runat="server" ImageUrl="~/Image/producticon.png" />
+                    <asp:HyperLink ID="ProInvLink" runat="server" NavigateUrl="~/LocalProdInv.aspx" CssClass="nav-link">Product and Inventory</asp:HyperLink>
+                </div>
+
+                <div class="nav-link-container">
+                    <asp:Image runat="server" ImageUrl="~/Image/usericon.png" />
+                    <asp:HyperLink ID="UserControlLink" runat="server" NavigateUrl="~/LocalUserControl.aspx" CssClass="nav-link">User Access Control</asp:HyperLink>
+                </div>
+
+                <div class="nav-link-container">
+                    <asp:Image runat="server" ImageUrl="~/Image/feedbackicon.png" />
+                    <asp:HyperLink ID="ReviewLink" runat="server" NavigateUrl="~/LocalReview.aspx" CssClass="nav-link">Review and Rating</asp:HyperLink>
+                </div>
+
+                <div class="nav-link-container">
+                    <asp:Image runat="server" ImageUrl="~/Image/homepageicon.png" />
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/HomepageLocal.aspx" CssClass="nav-link">Back To Home</asp:HyperLink>
+                </div>
+            </div>
+
+            <!-- Main content area -->
+            <div class="main-content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
+
