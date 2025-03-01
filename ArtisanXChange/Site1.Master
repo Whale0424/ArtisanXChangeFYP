@@ -237,7 +237,7 @@
         }
 
        .cart {
-            width: 30px;  /* Adjust width */
+            width: 30px;  
             height: 30px; /* Adjust height */
         }
 

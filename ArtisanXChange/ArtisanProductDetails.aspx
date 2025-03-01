@@ -21,6 +21,7 @@
             display: flex;
             align-items: center;
         }
+
         
         .quantity-btn {
             width: 40px;
