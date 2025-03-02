@@ -191,6 +191,13 @@
     <Compile Include="HomepageLocal.aspx.designer.cs">
       <DependentUpon>HomepageLocal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LocalAdminSite3.Master.cs">
+      <DependentUpon>LocalAdminSite3.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LocalAdminSite3.Master.designer.cs">
+      <DependentUpon>LocalAdminSite3.Master</DependentUpon>
+    </Compile>
     <Compile Include="LocalCreate.aspx.cs">
       <DependentUpon>LocalCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -286,6 +293,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LocalSite2.Master" />
+    <Content Include="LocalAdminSite3.Master" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">

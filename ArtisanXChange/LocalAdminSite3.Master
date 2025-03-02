@@ -1,0 +1,190 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LocalAdminSite3.master.cs" Inherits="ArtisanXChange.LocalAdminSite3" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>ArtisanXChange Admin</title>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            scroll-padding-top: 2rem;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%; /* Ensure full height */
+            margin: 0; /* Remove default margin */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-container {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 1.5%;
+        }
+
+        .logo-container .logo {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+
+        .welcome-message {
+            color: white;
+            font-size: 18px;
+            position: absolute;
+            right: 30px; /* Move the message to the right side */
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 230px; /* Adjusted width */
+            height: 200vh; /* Ensure full viewport height */
+            background-color: #2c3e50; /* Different color for admin */
+            position: fixed;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            align-items: center; /* Center align all items horizontally */
+            overflow-y: auto; /* Allow vertical scrolling */
+        }
+
+        .sidebar-logo {
+            width: 70px; /* Adjust the size of the logo */
+            height: 70px;
+            margin-bottom: 20px; /* Add some space below the logo */
+        }
+
+        .sidebar-title {
+            color: white;
+            font-size: 22px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .sidebar .nav-link-container {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            width: 100%; /* Full width to ensure alignment */
+        }
+
+        .sidebar .nav-link-container img {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            margin-left: 5px;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border-radius: 4px;
+            font-size: 18px; /* Adjust the text size here */
+        }
+
+        .sidebar a:hover {
+            background-color: #34495e;
+        }
+
+        /* Main content */
+        .main-content {
+            margin-left: 230px; /* Adjust for sidebar width */
+            padding: 20px;
+            width: calc(100% - 230px); /* Adjust for sidebar width */
+        }
+        
+        /* Admin indicator */
+        .admin-indicator {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <!-- Sidebar navigation -->
+            <div class="sidebar">
+                <!-- Logo at the top of the sidebar, centered -->
+                <asp:ImageButton runat="server" ImageUrl="~/Image/logo.jpg" PostBackUrl="~/LocalAdminDashboard.aspx" CssClass="sidebar-logo" />
+                
+                <div class="sidebar-title">ADMIN PANEL</div>
+
+                <!-- Image and text side by side for each link -->
+                <div class="nav-link-container">
+                    <asp:Image runat="server" ImageUrl="~/Image/dashicon.png" />
+                    <asp:HyperLink ID="DashLink" runat="server" NavigateUrl="~/LocalAdminDashboard.aspx" CssClass="nav-link">Dashboard</asp:HyperLink>
+                </div>
+
+                <div class="nav-link-container">
+                    <asp:Image runat="server" ImageUrl="~/Image/producticon.png" />
+                    <asp:HyperLink ID="ProInvLink" runat="server" NavigateUrl="~/LocalAdminProducts.aspx" CssClass="nav-link">Product Management</asp:HyperLink>
+                </div>
+
+                <div class="nav-link-container">
+                    <asp:Image runat="server" ImageUrl="~/Image/usericon.png" />
+                    <asp:HyperLink ID="UserControlLink" runat="server" NavigateUrl="~/LocalAdminUsers.aspx" CssClass="nav-link">User Management</asp:HyperLink>
+                </div>
+
+                <div class="nav-link-container">
+                    <asp:Image runat="server" ImageUrl="~/Image/ordericon.png" />
+                    <asp:HyperLink ID="OrdersLink" runat="server" NavigateUrl="~/LocalAdminOrders.aspx" CssClass="nav-link">Order Management</asp:HyperLink>
+                </div>
+
+                <div class="nav-link-container">
+                    <asp:Image runat="server" ImageUrl="~/Image/feedbackicon.png" />
+                    <asp:HyperLink ID="FeedbackLink" runat="server" NavigateUrl="~/LocalFeedbackReview.aspx" CssClass="nav-link">Customer Feedback</asp:HyperLink>
+                </div>
+
+                <div class="nav-link-container">
+                    <asp:Image runat="server" ImageUrl="~/Image/reporticon.png" />
+                    <asp:HyperLink ID="ReportsLink" runat="server" NavigateUrl="~/LocalAdminReports.aspx" CssClass="nav-link">Reports & Analytics</asp:HyperLink>
+                </div>
+
+                <div class="nav-link-container">
+                    <asp:Image runat="server" ImageUrl="~/Image/settingsicon.png" />
+                    <asp:HyperLink ID="SettingsLink" runat="server" NavigateUrl="~/LocalAdminSettings.aspx" CssClass="nav-link">System Settings</asp:HyperLink>
+                </div>
+
+                <div class="nav-link-container">
+                    <asp:Image runat="server" ImageUrl="~/Image/homepageicon.png" />
+                    <asp:HyperLink ID="HomepageLink" runat="server" NavigateUrl="~/HomepageLocal.aspx" CssClass="nav-link">Back To Home</asp:HyperLink>
+                </div>
+            </div>
+
+            <!-- Main content area -->
+            <div class="main-content">
+                <div class="admin-indicator">ADMIN MODE</div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
