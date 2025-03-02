@@ -116,6 +116,7 @@
     <Content Include="Image\Localsearch.png" />
     <Content Include="LocalCreate.aspx" />
     <Content Include="LocalDelete.aspx" />
+    <Content Include="LocalFeedbackReview.aspx" />
     <Content Include="LocalProdInv.aspx" />
     <Content Include="LocalSearch.aspx" />
     <Content Include="LocalUpdate.aspx" />
@@ -203,6 +204,13 @@
     </Compile>
     <Compile Include="LocalDelete.aspx.designer.cs">
       <DependentUpon>LocalDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LocalFeedbackReview.aspx.cs">
+      <DependentUpon>LocalFeedbackReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LocalFeedbackReview.aspx.designer.cs">
+      <DependentUpon>LocalFeedbackReview.aspx</DependentUpon>
     </Compile>
     <Compile Include="LocalProdInv.aspx.cs">
       <DependentUpon>LocalProdInv.aspx</DependentUpon>
